@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style>
+    body {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+    }
+    .container {
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .collapsible-header {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0072ff;
+    }
+    .collapsible-body {
+      padding: 20px;
+    }
+    .btn {
+      border-radius: 25px;
+      padding: 10px 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .btn.red {
+      background: linear-gradient(45deg, #ff6f6f, #ff3d3d);
+    }
+    .btn.blue {
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+    }
+    .file-field .btn {
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      height: auto;
+      line-height: 1.5rem;
+    }
+    .file-field .btn span {
+      color: #fff;
+    }
+    .header {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #ff5722;
+    }
+    .collapsible-header i {
+      font-size: 2.5rem;
+      color: #0072ff;
+    }
+    .collapsible-body table {
+      width: 100%;
+      color: #333;
+    }
+    .collapsible-body table th, .collapsible-body table td {
+      color: #000;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      color: #000;
+    }
+    .card-title {
+      font-size: 1.5rem;
+      color: #0072ff;
+    }
+    /* Style for the logout button */
+    #logout-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #ff6f6f, #ff3d3d);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    #logout-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Logout Button -->
+  <button id="logout-btn">Logout</button>
+
+  <div class="container">
+    <div class="row">
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">settings</i>
+            <span>Settings</span>
+          </div>
+          <div class="collapsible-body">
+            <div class="card">
+              <div class="row">
+                <div class="col s12 m12 l4">
+                  <button id="trainbutton" class="waves-effect waves-light btn red" style="padding-bottom: 40px;">Train</button>
+                  <button id="suggestbutton" class="waves-effect waves-light btn blue" style="padding-bottom: 40px;">Suggest</button>
+                  <div class="file-field input-field">
+                    <div class="btn">
+                      <span>Pick CSV</span>
+                      <input id="uploadcsv" type="file">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12 m6 l4">
+                  <input id="learningrate" type="number" placeholder="Eg: 0.001" class="validate">
+                  <label for="learningrate">Learning rate</label>
+                </div>
+                <div class="input-field col s12 m6 l4">
+                  <input id="inputdropoutrate" type="number" placeholder="Eg: 0.9" class="validate">
+                  <label for="inputdropoutrate">Input dropout rate</label>
+                </div>
+                <div class="input-field col s12 m6 l4">
+                  <input id="outputdropoutrate" type="number" placeholder="Eg: 0.9" class="validate">
+                  <label for="outputdropoutrate">Output dropout rate</label>
+                </div>
+                <div class="input-field col s12 m6 l4">
+                  <input id="timestamp" type="number" placeholder="Eg: 5" class="validate">
+                  <label for="timestamp">Timestamp per training</label>
+                </div>
+                <div class="input-field col s12 m6 l4">
+                  <input id="sizelayer" type="number" placeholder="Eg: 64" class="validate">
+                  <label for="sizelayer">Size layer</label>
+                </div>
+                <div class="input-field col s12 m6 l4">
+                  <input id="epoch" type="number" placeholder="Eg: 10" class="validate">
+                  <label for="epoch">Training Iteration</label>
+                </div>
+                <div class="input-field col s12 m6 l4">
+                  <input id="future" type="number" placeholder="Eg: 10" class="validate">
+                  <label for="future">Future days to forecast</label>
+                </div>
+                <div class="input-field col s12 m6 l4">
+                  <input id="smooth" type="number" placeholder="Eg: 10" class="validate">
+                  <label for="smooth">Smoothing weights</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12 m12 l4">
+                  <h6 class="card-title">Buying & Selling simulation</h6>
+                </div>
+                <div class="input-field col s12 m6 l3">
+                  <input id="initialmoney" type="number" placeholder="Eg: 10000" class="validate">
+                  <label for="initialmoney">Initial money(usd)</label>
+                </div>
+                <div class="input-field col s12 m6 l3">
+                  <input id="maxbuy" type="number" placeholder="Eg: 5" class="validate">
+                  <label for="maxbuy">Max buy(unit)</label>
+                </div>
+                <div class="input-field col s12 m6 l3">
+                  <input id="maxsell" type="number" placeholder="Eg: 10" class="validate">
+                  <label for="maxsell">Max sell(unit)</label>
+                </div>
+                <div class="input-field col s12 m6 l3">
+                  <input id="history" type="number" placeholder="Eg: 5" class="validate">
+                  <label for="history">Historical rolling</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- <h6 class='header center light'>WARNING: This website may hang during training. Do not use it to buy real stock!<br>Default stock is Google 2018; you can upload any stock CSV.</h6> -->
+
+    <div class="row">
+      <div class="col s12 m12">
+        <div id="div_output" style="height: 500px; background: #f6f3f3; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></div>
+      </div>
+    </div>
+
+    <div class="row close-first">
+      <div class="col s12 m8">
+        <div id="div_dist" style="height: 450px; background: #f6f3f5; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></div>
+      </div>
+      <div class="col s12 m4">
+        <div class="row">
+          <div id="div_loss" style="height: 250px; background: #f6f3f5; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></div>
+        </div>
+        <div class="row" id="log" style="height: 150px; overflow:auto; background:#f6f3f5; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); color: #000;"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">archive</i>
+            <span>Simulation log</span>
+          </div>
+          <div class="collapsible-body">
+            <table class="bordered highlight">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Action</th>
+                  <th>Price</th>
+                  <th>Investment</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody id='table-body'></tbody>
+            </table>
+            <br>
+            <span id="log-invest"></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="row center" id="color-investment"></div>
+  </div>
+  
+  <script src="js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.collapsible');
+      var instances = M.Collapsible.init(elems, {});
+    });
+
+    // Logout button functionality
+    document.getElementById('logout-btn').addEventListener('click', function() {
+      window.location.href = 'home.html'; // Redirect to home.html
+    });
+  </script>
+  <script src="js/tf.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/d3.v3.min.js"></script>
+  <script src="js/numeric-1.2.6.min.js"></script>
+  <script src="js/numjs.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/echarts.min.js"></script>
+  <script src="js/echarts-gl.min.js"></script>
+  <script src="js/papaparse.min.js"></script>
+  <script src="data/google.js"> </script>
+  <script src="init.js"> </script>
+</body>
+</html>

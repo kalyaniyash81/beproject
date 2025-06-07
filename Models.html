@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InvestLink - Prediction Models</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <h1>InvestLink</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="models.html">Models</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="signup.html">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ARIMA Model Section -->
+  <section class="model-section">
+    <h2>ARIMA Model</h2>
+    <div class="model-content">
+      <div class="model-description">
+        <p>
+          ARIMA (AutoRegressive Integrated Moving Average) is a statistical model used for time-series forecasting. It is widely used in stock prediction due to its ability to capture trends and seasonality in data.
+        </p>
+        <ul>
+          <li><strong>Accuracy:</strong> 89.5%</li>
+          <li><strong>RMSE:</strong> 12.34</li>
+          <li><strong>MAE:</strong> 8.76</li>
+        </ul>
+      </div>
+      <div class="model-image">
+        <img src="./screenshot/arimamodel.png" alt="ARIMA Model">
+      </div>
+    </div>
+  </section>
+  <hr>
+
+  <!-- LSTM Model Section -->
+  <section class="model-section">
+    <h2>LSTM Model</h2>
+    <div class="model-content">
+      <div class="model-description">
+        <p>
+          LSTM (Long Short-Term Memory) is a type of Recurrent Neural Network (RNN) designed to handle long-term dependencies in sequential data. It is highly effective for stock price prediction due to its ability to learn complex patterns.
+        </p>
+        <ul>
+          <li><strong>Accuracy:</strong> 95.69%</li>
+          <li><strong>RMSE:</strong> 8.45</li>
+          <li><strong>MAE:</strong> 6.23</li>
+        </ul>
+      </div>
+      <div class="model-image">
+        <img src="./screenshot/lstm.png" alt="LSTM Model">
+      </div>
+    </div>
+  </section>
+  <hr>
+
+  <!-- GRU Model Section -->
+  <section class="model-section">
+    <h2>GRU Model</h2>
+    <div class="model-content">
+      <div class="model-description">
+        <p>
+          GRU (Gated Recurrent Unit) is a simplified version of LSTM with fewer parameters. It is computationally efficient and performs well in capturing temporal dependencies in stock data.
+        </p>
+        <ul>
+          <li><strong>Accuracy:</strong> 94.63%</li>
+          <li><strong>RMSE:</strong> 9.12</li>
+          <li><strong>MAE:</strong> 6.89</li>
+        </ul>
+      </div>
+      <div class="model-image">
+        <img src="./screenshot/gru.png" alt="GRU Model">
+      </div>
+    </div>
+  </section>
+  <hr>
+
+  <!-- Vanilla RNN Model Section -->
+  <section class="model-section">
+    <h2>Vanilla RNN Model</h2>
+    <div class="model-content">
+      <div class="model-description">
+        <p>
+          Vanilla RNN is the simplest form of Recurrent Neural Network. While it struggles with long-term dependencies, it is still useful for short-term stock price predictions.
+        </p>
+        <ul>
+          <li><strong>Accuracy:</strong> 91.54%</li>
+          <li><strong>RMSE:</strong> 10.56</li>
+          <li><strong>MAE:</strong> 7.45</li>
+        </ul>
+      </div>
+      <div class="model-image">
+        <img src="./screenshot/vanilarnn.png" alt="Vanilla RNN Model">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+   
+    <div class="social-media">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://reddit.com" target="_blank"><i class="fab fa-reddit"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>Contact us: contact@investlink.com</p>
+  </footer>
+</body>
+</html>

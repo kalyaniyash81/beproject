@@ -1,0 +1,16 @@
+{
+  "name": "stock-forecasting",
+  "version": "1.0.0",
+  "description": "LSTM Model for stock forecasting and buying simulation inside Tensorflow JS, so everyone can try!",
+  "main": "init.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.10.2"
+  }
+}
